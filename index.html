@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ببخش منو، عشق من ❤️</title>
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Tahoma, Arial, sans-serif;
+      color: #fff0f7;
+      background:
+        radial-gradient(ellipse at 50% 30%, #472039 0%, transparent 55%),
+        linear-gradient(145deg, #100b19, #241020, #100b19);
+      overflow-x: hidden;
+    }
+
+    .page {
+      width: min(100% - 28px, 760px);
+      margin: auto;
+      padding: 32px 0;
+      text-align: center;
+    }
+
+    .header h1 {
+      font-size: clamp(21px, 5vw, 32px);
+      color: #ff8fc7;
+      text-shadow: 0 0 22px #ff4da680;
+    }
+
+    .header p, .hint { color: #e9bfd7; line-height: 2; }
+
+    .heart-icon {
+      color: #ff63ae;
+      font-size: 35px;
+      animation: heartbeat 1.2s infinite;
+      display: inline-block;
+    }
+
+    .scene {
+      position: relative;
+      margin: 24px auto;
+      width: 100%;
+      min-height: 420px;
+      display: grid;
+      place-items: center;
+      border: 1px solid #ff76b633;
+      border-radius: 28px;
+      background: linear-gradient(160deg, #291329aa, #110b18dd);
+      box-shadow: 0 0 50px #ff32901a;
+      overflow: hidden;
+    }
+
+    .glow {
+      position: absolute;
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      background: #ff3f9b;
+      filter: blur(100px);
+      opacity: .19;
+    }
+
+    .character {
+      position: relative;
+      width: min(82%, 390px);
+      animation: float 3s ease-in-out infinite;
+      transform-origin: 50% 85%;
+    }
+
+    .character-label {
+      position: relative;
+      z-index: 2;
+      color: #ff9acb;
+      font-size: 13px;
+      margin-bottom: 10px;
+    }
+
+    .girl {
+      display: block;
+      width: 100%;
+      max-height: 330px;
+      object-fit: contain;
+      filter: drop-shadow(0 0 18px #ff5a9d35);
+      animation: bodySway 4s ease-in-out infinite;
+      transform-origin: 50% 85%;
+    }
+
+    .heart-button {
+      position: absolute;
+      left: 50%;
+      top: 68%;
+      transform: translate(-50%, -50%);
+      width: 90px;
+      height: 90px;
+      border: 2px solid #ff72b8;
+      border-radius: 50%;
+      background: #ff4b9a24;
+      color: white;
+      box-shadow: 0 0 20px #ff4b9a88, inset 0 0 20px #ff4b9a20;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 3px;
+      animation: pulse 1.7s infinite;
+      backdrop-filter: blur(4px);
+    }
+
+    .heart-button span { font-size: 27px; color: #ff7bb9; }
+    .heart-button small { font-size: 11px; }
+    .heart-button:hover { background: #ff4b9a55; }
+    .heart-button:active { transform: translate(-50%, -50%) scale(.88); }
+
+    .hint { padding: 0 12px 20px; font-size: 13px; }
+
+    .message {
+      position: relative;
+      margin: 22px auto;
+      padding: 26px 20px;
+      border: 1px solid #ff72b8;
+      border-radius: 24px;
+      background: #170d1af2;
+      box-shadow: 0 0 35px #ff4b9a25;
+      animation: popIn .45s ease both;
+    }
+
+    .message h2 { color: #ff86bf; }
+    .message p { line-height: 2.3; color: #f8dfed; }
+    .message strong { color: #ff91c8; }
+    .big-heart { font-size: 40px; animation: heartbeat 1s infinite; }
+
+    .close {
+      position: absolute;
+      top: 8px;
+      left: 12px;
+      background: none;
+      border: 0;
+      color: white;
+      font-size: 28px;
+      cursor: pointer;
+    }
+
+    .forgive-button {
+      border: 0;
+      border-radius: 30px;
+      padding: 13px 24px;
+      background: linear-gradient(90deg, #ff4c99, #ff85bd);
+      color: white;
+      font-size: 15px;
+      cursor: pointer;
+      box-shadow: 0 5px 22px #ff4c9944;
+    }
+
+    .forgive-button:hover { filter: brightness(1.12); }
+    .reply { color: #ff8fc7 !important; font-weight: bold; }
+    footer { padding: 25px 0 5px; font-size: 12px; color: #c99ab9; }
+    [hidden] { display: none !important; }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(-1deg); }
+      50% { transform: translateY(-10px) rotate(1deg); }
+    }
+
+    @keyframes bodySway {
+      0%, 100% { transform: rotate(-1deg) scale(1); }
+      50% { transform: rotate(1deg) scale(1.012); }
+    }
+
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 14px #ff4b9a66; }
+      50% { box-shadow: 0 0 30px #ff4b9add; }
+    }
+
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      15% { transform: scale(1.18); }
+      30% { transform: scale(1); }
+      45% { transform: scale(1.12); }
+    }
+
+    @keyframes popIn {
+      from { opacity: 0; transform: translateY(15px) scale(.96); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    @media (max-width: 480px) {
+      .page { padding-top: 22px; }
+      .scene { min-height: 360px; }
+      .character { width: 90%; }
+      .girl { max-height: 280px; }
+      .heart-button { width: 76px; height: 76px; }
+      .message { padding: 24px 14px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="header">
+      <span class="heart-icon">♥</span>
+      <h1>برای قشنگ‌ترین آدم زندگیم</h1>
+      <p>یه چیزی هست که می‌خوام بهت بگم...</p>
+    </header>
+
+    <section class="scene">
+      <div class="glow"></div>
+      <div class="character" id="character">
+        <div class="character-label">Your Anime Girl ♡</div>
+        <!-- تصویر دلخواهت را با نام girl.png کنار index.html آپلود کن -->
+        <img src="girl.png" alt="دختر انیمه‌ای" class="girl" id="girl">
+        <div class="girl-placeholder" id="placeholder" hidden>🎀 🌸 🎀</div>
+        <button class="heart-button" id="heartButton" aria-label="نمایش پیام عاشقانه">
+          <span>♥</span>
+          <small>اینجا بزن ♡</small>
+        </button>
+      </div>
+      <div class="hint">روی قلب صورتی بزن تا سورپرایزت رو ببینی 💗</div>
+    </section>
+
+    <section class="message" id="message" aria-live="polite" hidden>
+      <button class="close" id="closeButton" aria-label="بستن">×</button>
+      <div class="big-heart">💗</div>
+      <h2>ببخش منو، عشق من!</h2>
+      <p>
+        می‌دونم شاید ناراحتت کردم...
+        <br>و واقعاً بابتش متأسفم.
+        <br>نمی‌خوام حتی یه لحظه غمت رو ببینم.
+        <br>تو برای من خیلی خاصی و دوستت دارم.
+        <br><strong>می‌تونی منو ببخشی؟ 🥺❤️</strong>
+      </p>
+      <button class="forgive-button" id="forgiveButton">یه بغل برای آشتی؟ 🫂</button>
+      <p class="reply" id="reply" hidden>یوهووو! عاشقتمممم! 💖✨</p>
+    </section>
+
+    <footer>ساخته‌شده با کلی عشق، فقط برای تو ♡</footer>
+  </main>
+
+  <script>
+    const heartButton = document.getElementById("heartButton");
+    const message = document.getElementById("message");
+    const closeButton = document.getElementById("closeButton");
+    const forgiveButton = document.getElementById("forgiveButton");
+    const reply = document.getElementById("reply");
+    const girl = document.getElementById("girl");
+    const placeholder = document.getElementById("placeholder");
+
+    heartButton.addEventListener("click", () => {
+      message.hidden = false;
+      message.scrollIntoView({ behavior: "smooth", block: "center" });
+
+      heartButton.animate(
+        [
+          { transform: "translate(-50%, -50%) scale(1)" },
+          { transform: "translate(-50%, -50%) scale(1.25)" },
+          { transform: "translate(-50%, -50%) scale(1)" }
+        ],
+        { duration: 350 }
+      );
+
+      createHearts();
+    });
+
+    closeButton.addEventListener("click", () => {
+      message.hidden = true;
+    });
+
+    forgiveButton.addEventListener("click", () => {
+      reply.hidden = false;
+      forgiveButton.textContent = "بغل مجازی فرستاده شد! 🫂";
+      createHearts(24);
+    });
+
+    function createHearts(count = 12) {
+      const symbols = ["💗", "💕", "💖", "♡", "✨"];
+
+      for (let i = 0; i < count; i++) {
+        const heart = document.createElement("span");
+        heart.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+        heart.style.position = "fixed";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.bottom = "-30px";
+        heart.style.fontSize = 16 + Math.random() * 18 + "px";
+        heart.style.zIndex = "1000";
+        heart.style.pointerEvents = "none";
+        document.body.appendChild(heart);
+
+        const duration = 1800 + Math.random() * 2200;
+        const animation = heart.animate(
+          [
+            { transform: "translateY(0) rotate(0deg)", opacity: 0 },
+            { opacity: 1, offset: 0.15 },
+            {
+              transform: `translateY(-${window.innerHeight + 100}px) rotate(240deg)`,
+              opacity: 0
+            }
+          ],
+          { duration, easing: "ease-out" }
+        );
+
+        animation.onfinish = () => heart.remove();
+      }
+    }
+
+    girl.addEventListener("error", () => {
+      girl.hidden = true;
+      placeholder.hidden = false;
+      placeholder.style.fontSize = "64px";
+      placeholder.style.padding = "65px 0";
+      placeholder.style.filter = "drop-shadow(0 0 20px #ff72b8)";
+    });
+  </script>
+</body>
+</html>
